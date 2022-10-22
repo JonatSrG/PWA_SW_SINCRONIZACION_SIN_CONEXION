@@ -9,7 +9,21 @@ const mensajes = [{
   user: 'spiderman',
   mensaje: 'Hola Mundo'
 
-}
+},
+{
+
+  _id: '2222',
+  user: 'iroman',
+  mensaje: 'Hola Mundo'
+
+},
+{
+
+  _id: '3333',
+  user: 'hulk',
+  mensaje: 'Hola Mundo!'
+
+},
 ];
 
 
