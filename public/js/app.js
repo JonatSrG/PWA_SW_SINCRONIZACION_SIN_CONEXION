@@ -177,3 +177,33 @@ function getMensajes() {
 }
 
 getMensajes();
+
+//Detectar cambios de conexion
+
+function isOnline() {
+
+    if( navigator.online) {
+        //hay conexion
+        //console.log('online');
+        $.mdtoast('Online', {
+            interaction: true,
+            interactionTimeout: 1000,
+            actionText: 'OK!'
+        });
+
+    } else {
+        //no hay conexion
+        //console.log('offline');
+        $.mdtoast('Offline', {
+            interaction: true,
+            actionText: 'OK',
+            type: 'warning'
+        });
+    }
+
+}
+
+window.addEventListener('online', isOnline );
+window.addEventListener('offline', isOnline );
+
+isOnline();
