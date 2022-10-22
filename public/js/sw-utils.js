@@ -46,17 +46,19 @@ function manejoApiMensajes( cacheName, req ) {
     if ( req.clone().method === 'POST') {
         //Posteo de un mensaje nuevo
 
-        req.clone().text().then(body => {
+        if ( self.registration.sync ) {
 
-            //console.log(body);
+            return req.clone().text().then(body => {
 
-            const bodyObj = JSON.parse(body);
-            guardarMensaje( bodyObj );
-
-        });
-
-        //
-        return fetch( req );
+                //console.log(body);
+    
+                const bodyObj = JSON.parse(body);
+                return guardarMensaje( bodyObj );
+    
+            });
+        } else {
+            return fetch( req );
+        }
 
     } else {
 

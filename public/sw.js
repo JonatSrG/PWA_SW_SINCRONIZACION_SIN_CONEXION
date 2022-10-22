@@ -85,7 +85,7 @@ self.addEventListener( 'fetch', e => {
     if( e.request.url.includes('/api') ) {
 
         //return respuesta
-        rspuesta = manajoApiMensajes( DYNAMIC_CACHE, e.request );
+        respuesta = manajoApiMensajes( DYNAMIC_CACHE, e.request );
 
     } else {
 
@@ -111,6 +111,18 @@ self.addEventListener( 'fetch', e => {
 
     e.respondWith( respuesta );
 
+});
+
+// tareas async
+self.addEventListener('sync', e => {
+
+    console.log(' sw: sync ');
+
+    if( e.tag === 'nuevo-post') {
+
+        //posterar a db cuando hay conexion
+        //e.waitUntil(  );
+    }
 });
 
 
